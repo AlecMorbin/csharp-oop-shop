@@ -75,14 +75,14 @@ namespace CSharp_Shop
         private int codeGenerator()
         {
             Random random = new Random();
-            return  random.Next();
+            return  random.Next(10000);
         }
 
         override
         public string ToString()
         {
             return "Prodotto:\n" +
-                    "Codice: " + codice + "\n" +
+                    "Codice: " + formattaCodice() + "\n" +
                     "Nome: '" + nome + "'\n" +
                     "Descrizione: '" + descrizione + "'\n" +
                     "Prezzo: " + prezzo + "\n" +
@@ -97,6 +97,21 @@ namespace CSharp_Shop
         public string nomeEsteso()
         {
             return "Nome esteso:\t" + codice + " - " + nome + "\n";
+        }
+
+        private string formattaCodice()
+        {
+            string result = "";
+            
+            result = codice.ToString();
+            for (int i = 0; i < 8; i++)
+            {
+                if (result.Length < 8)
+                    result = "0" + result;
+            }
+            //converto in stringa e faccio i controlli e le modifiche neccessarie in questo modo altrimenti
+            //anche aggiunendo gli zeri da intero verrebbe comunque letto senza gli zeri aggiunti
+            return result;
         }
     }
 }

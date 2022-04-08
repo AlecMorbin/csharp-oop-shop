@@ -1,2 +1,4 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using CSharp_Shop;
+
+Prodotto prodotto = new Prodotto("Foglio","Carta per scrivere",3,0.23f);
+Console.WriteLine( prodotto.ToString());
